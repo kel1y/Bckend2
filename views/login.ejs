@@ -1,0 +1,96 @@
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+
+<body>
+
+    <div class="content">
+        <div class="right">
+            <div class="right-top">
+                <div class="right-1"><a href="/" class="about">Home</a>
+            </div>
+        </div>
+        <div class="contentheader">
+            Login
+        </div>
+        <div class="contentbody">
+            <h3 id="error">
+
+            </h3>
+            <br>
+            <form onsubmit="login(event)" class="form">
+                <input type="email" id="email" placeholder="email" autocomplete="off">
+                <div class="email error"></div>
+                <br>
+                <br>
+                <br>
+                <input type="password" id="pwd" placeholder="password">
+                <div class="password error"></div>
+                <br>
+                <br>
+                <button type="submit" id="log">LOGIN</button>
+                <br>
+                <br>
+                <br>
+                <a id="log2" href="/signup">SIGN UP</a>
+            </form>
+        </div>
+        <div class="footer">
+            <div class="footer-left">
+                <div class="footer-left-content">2022 ALL RIGHTS RESERVED DESIGNED BY <span class="name">NTAWIGENGA KELLY</span></div>
+            </div>
+            <div class="footer-right">
+                <div class="foot-1">Github</div>
+                <div class="foot-2">Dribble</div>
+                <div class="foot-3">Linked</div>
+                <div class="foot-4">Twitter</div>
+            </div>
+        </div>
+
+
+    </div>
+    
+    <!-- <script src="main.js"></script> -->
+</body>
+
+<script>
+    const form = document.querySelector('form');
+    const emailError = document.querySelector('.email.error');
+    const passwordError = document.querySelector('.password.error');
+  
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+  
+      // reset errors
+      emailError.textContent = '';
+      passwordError.textContent = '';
+  
+      // get values
+      const email = form.email.value;
+      const password = form.password.value;
+  
+      try {
+        const res = await fetch('/signup', { 
+          method: 'POST', 
+          body: JSON.stringify({ email, password }),
+          headers: {'Content-Type': 'application/json'}
+        });
+        const data = await res.json();
+        console.log(data);
+        if (data.errors) {
+          emailError.textContent = data.errors.email;
+          passwordError.textContent = data.errors.password;
+        }
+        if (data.user) {
+          location.assign('/');
+        }
+  
+      }
+      catch (err) {
+        console.log(err);
+      }
+  
+    });
+  </script>

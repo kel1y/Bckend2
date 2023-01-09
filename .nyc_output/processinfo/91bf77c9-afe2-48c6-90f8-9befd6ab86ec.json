@@ -1,0 +1,21 @@
+{
+  "parent": "b51dcb9c-6b90-42eb-ac6a-77f802fcd9ef",
+  "pid": 4236,
+  "argv": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Users\\Ink\\Documents\\Project\\my-brand\\Backend\\node_modules\\mocha\\bin\\mocha.js"
+  ],
+  "execArgv": [],
+  "cwd": "C:\\Users\\Ink\\Documents\\Project\\my-brand\\Backend",
+  "time": 1671461336654,
+  "ppid": 9836,
+  "coverageFilename": "C:\\Users\\Ink\\Documents\\Project\\my-brand\\Backend\\.nyc_output\\91bf77c9-afe2-48c6-90f8-9befd6ab86ec.json",
+  "externalId": "",
+  "uuid": "91bf77c9-afe2-48c6-90f8-9befd6ab86ec",
+  "files": [
+    "C:\\Users\\Ink\\Documents\\Project\\my-brand\\Backend\\authroutes.js",
+    "C:\\Users\\Ink\\Documents\\Project\\my-brand\\Backend\\authmain.js",
+    "C:\\Users\\Ink\\Documents\\Project\\my-brand\\Backend\\user.js",
+    "C:\\Users\\Ink\\Documents\\Project\\my-brand\\Backend\\authreq.js"
+  ]
+}

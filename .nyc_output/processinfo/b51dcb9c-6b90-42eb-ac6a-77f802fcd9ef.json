@@ -1,0 +1,18 @@
+{
+  "parent": null,
+  "pid": 7904,
+  "argv": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+    "run",
+    "test"
+  ],
+  "execArgv": [],
+  "cwd": "C:\\Users\\Ink\\Documents\\Project\\my-brand\\Backend",
+  "time": 1671461335918,
+  "ppid": 9936,
+  "coverageFilename": "C:\\Users\\Ink\\Documents\\Project\\my-brand\\Backend\\.nyc_output\\b51dcb9c-6b90-42eb-ac6a-77f802fcd9ef.json",
+  "externalId": "",
+  "uuid": "b51dcb9c-6b90-42eb-ac6a-77f802fcd9ef",
+  "files": []
+}
