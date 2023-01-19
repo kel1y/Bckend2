@@ -41,13 +41,13 @@ mongoose
   .catch((err) => console.log(err));
 
 // routes
-app.get('*', checkUser);
-app.use(preventUser, '/get/blogs');
-app.use(preventUser, '/get/blogs/:id');
-app.use(preventUser, '/get/messages');
-app.use(preventUser, '/get/users');
-app.use(preventUser, '/post/blog');
-app.use(preventUser, '/put/blogs/:id');
-app.use(preventUser, '/delete/blogs/:id');
+// app.get('*', checkUser);
+// app.use(preventUser, '/get/blogs');
+// app.use(preventUser, '/get/blogs/:id');
+// app.use(preventUser, '/get/messages');
+// app.use(preventUser, '/get/users');
+// app.use(preventUser, '/post/blog');
+// app.use(preventUser, '/put/blogs/:id');
+// app.use(preventUser, '/delete/blogs/:id');
 
 app.use(preventUser, authRoutes);
