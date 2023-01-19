@@ -8,15 +8,15 @@ const requireAuth = (req, res, next) => {
   if (token) {
     jwt.verify(token, 'backend', (err, decodedToken) => {
       if (err) {
-        console.log(err.message);
-        res.redirect('/login');
+          'pass'
       } else {
-        console.log(decodedToken);
+        // console.log(decodedToken);
         next();
       }
     });
   } else {
-    res.redirect('/login');
+    // res.redirect('/login');
+    'pass'
   }
 };
 
@@ -30,6 +30,8 @@ const checkUser = (req, res, next) => {
         next();
       } else {
         let user = await User.findById(decodedToken.id);
+        // console.log(decodedToken.id);
+        // console.log(user.email);
         res.locals.user = user;
         next();
       }
@@ -40,4 +42,26 @@ const checkUser = (req, res, next) => {
   }
 };
 
-module.exports = { requireAuth, checkUser };
+const preventUser = (req, res, next) => {
+  const token = req.cookies.jwt;
+  if (token) {
+    jwt.verify(token, 'backend', async (err, decodedToken) => {
+      if (err) {
+        res.locals.user = null;
+        next();
+      } else {
+        let user = await User.findById(decodedToken.id);
+        if(user.email != "admin@gmail.com"){
+          res.status(400).json({ error: 'Login as Admin' });
+        }
+        res.locals.user = user;
+        return;
+      }
+    });
+  } else {
+    res.locals.user = null;
+    next();
+  }
+};
+
+module.exports = { requireAuth, checkUser, preventUser };

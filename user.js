@@ -17,6 +17,57 @@ const userSchema = new mongoose.Schema({
   },
 });
 
+const blogSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: [true, 'specify the title'],
+    unique: true,
+    lowercase: true,
+  },
+  content: {
+    type: String,
+    required: [true, 'Please specify the content'],
+  },
+});
+
+const messageSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, 'provide name'],
+    // unique: true,
+    // lowercase: true,
+  },
+
+  email: {
+    type: String,
+    required: [true, 'provide email'],
+    // unique: true,
+    // lowercase: true,
+  },
+  content: {
+    type: String,
+    required: [true, 'provide message'],
+  },
+});
+
+const likeSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: [true, 'provide email'],
+    unique: true,
+    lowercase: true,
+  },
+});
+
+const commentSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: [true, 'provide email'],
+    unique: true,
+    lowercase: true,
+  },
+});
+
 // fire a function before doc saved to db
 userSchema.pre('save', async function (next) {
   const salt = await bcrypt.genSalt();
@@ -38,5 +89,9 @@ userSchema.statics.login = async function (email, password) {
 };
 
 const User = mongoose.model('user', userSchema);
+const Blog = mongoose.model('blog', blogSchema);
+const Message = mongoose.model('message', messageSchema);
+const Like = mongoose.model('like', likeSchema);
+const Comment = mongoose.model('comment', commentSchema);
 
-module.exports = User;
+module.exports = { User, Blog, Message, Like, Comment };

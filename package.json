@@ -2,7 +2,7 @@
   "name": "node-express-jwt-auth",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "cookie-parser": "^1.4.5",
@@ -23,8 +23,8 @@
   },
   "scripts": {
     "test": "mocha",
-    "start": "node web.js",
-    "dev": "nodemon web.js",
+    "start": "nodemon index.js",
+    "dev": "nodemon index.js",
     "coverage": "nyc --reporter=text npm run test"
   },
   "repository": {
