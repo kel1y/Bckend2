@@ -50,4 +50,4 @@ app.use(preventUser, '/post/blog');
 app.use(preventUser, '/put/blogs/:id');
 app.use(preventUser, '/delete/blogs/:id');
 
-app.use(authRoutes);
+app.use(preventUser, authRoutes);

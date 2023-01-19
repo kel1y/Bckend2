@@ -8,7 +8,7 @@ const requireAuth = (req, res, next) => {
   if (token) {
     jwt.verify(token, 'backend', (err, decodedToken) => {
       if (err) {
-          'pass'
+        ('pass');
       } else {
         // console.log(decodedToken);
         next();
@@ -16,7 +16,7 @@ const requireAuth = (req, res, next) => {
     });
   } else {
     // res.redirect('/login');
-    'pass'
+    ('pass');
   }
 };
 
@@ -51,7 +51,7 @@ const preventUser = (req, res, next) => {
         next();
       } else {
         let user = await User.findById(decodedToken.id);
-        if(user.email != "admin@gmail.com"){
+        if (user.email != 'admin@gmail.com') {
           res.status(400).json({ error: 'Login as Admin' });
         }
         res.locals.user = user;
