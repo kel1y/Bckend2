@@ -6,7 +6,7 @@ const router = Router();
 router.post('/user/signup', authController.signup_post);
 router.post('/user/login', authController.login_post);
 router.get('/user/logout', authController.logout_get);
-// router.post('/dashboard', authController.dashboard_post);
+router.post('/dashboard', authController.dashboard_post);
 router.get('/get/blogs', authController.get_blogs);
 router.get('/get/blogs/:id', authController.getblogs_id);
 router.get('/get/messages', authController.get_messages);

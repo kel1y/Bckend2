@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./authroutes');
 const cookieParser = require('cookie-parser');
-const { requireAuth, checkUser } = require('./authreq');
+const { requireAuth, checkUser, preventUser } = require('./authreq');
 
 const app = express();
 
@@ -42,4 +42,12 @@ mongoose
 
 // routes
 app.get('*', checkUser);
+app.get(preventUser, '/get/blogs');
+app.get(preventUser, '/get/blogs/:id');
+app.get(preventUser, '/get/messages');
+app.get(preventUser, '/get/users');
+app.post(preventUser, '/post/blog');
+app.put(preventUser, '/put/blogs/:id');
+app.delete(preventUser, '/delete/blogs/:id');
+
 app.use(authRoutes);
